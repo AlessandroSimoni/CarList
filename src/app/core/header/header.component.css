@@ -1,0 +1,53 @@
+/* Stili generali per il tema chiaro (di default) */
+body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  /* Stili per il tema scuro */
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  body.dark-mode .navbar {
+    background-color: #1f1f1f;
+  }
+  
+  body.dark-mode .navbar .nav-link {
+    color: #ffffff;
+  }
+  
+  body.dark-mode .navbar-brand,
+  body.dark-mode .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Animazione per il passaggio da luna a sole */
+  @keyframes rotate-sun {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Animazione per il passaggio da sole a luna */
+  @keyframes fade-moon {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .rotate-sun img {
+    animation: rotate-sun 1s linear;
+  }
+  
+  .fade-moon img {
+    animation: fade-moon 1s linear;
+  }
+  

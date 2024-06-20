@@ -1,0 +1,11 @@
+.gif-container {
+    width: 300px; /* Imposta la larghezza desiderata */
+    height: auto; /* L'altezza viene regolata automaticamente per mantenere le proporzioni originali */
+    overflow: hidden; /* Nasconde eventuali parti del GIF che eccedono le dimensioni specificate */
+    margin: 0 auto; /* Centra il contenitore orizzontalmente */
+}
+
+.gif {
+    width: 100%; /* Assicura che il GIF occupi l'intera larghezza del contenitore */
+    height: auto; /* L'altezza viene regolata automaticamente per mantenere le proporzioni originali */
+}
