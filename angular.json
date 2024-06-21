@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "CarList"
+  "defaultProject": "CarList",
+  "cli": {
+    "analytics": false
+  }
 }
