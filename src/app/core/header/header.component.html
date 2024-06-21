@@ -1,33 +1,15 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">CarList</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item me-lg-3">
-                    <button class="btn btn-outline-secondary border-0 me-2" (click)="toggleTheme()">
-                        <span [ngClass]="isDarkMode ? 'fade-moon' : 'rotate-sun'">
-                            <img *ngIf="isDarkMode" src="assets/images/sun.svg" alt="Sun Icon" width="24" height="24">
-                            <img *ngIf="!isDarkMode" src="assets/images/moon.svg" alt="Moon Icon" width="24" height="24">
-                        </span>
-                    </button>
-                </li>
-                <li class="nav-item me-lg-3">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item me-lg-3">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item me-lg-3">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Accedi</a>
-                </li>
-            </ul>
-        </div>
+<nav>
+    <a href="/"><h2>CarList</h2></a>
+    <div class="nav-items">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div class="nav-button">
+        <div class="anim-layer"></div>
+        <a href="#">Sign In</a>
     </div>
 </nav>
