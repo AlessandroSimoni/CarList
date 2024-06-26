@@ -1,88 +1,92 @@
-nav{
+nav {
+  height: 60px;
   background-color: var(--primary-color);
-  color: white;
   display: flex;
   justify-content: space-between;
+  /* Cambiato da flex-end a space-between */
   align-items: center;
-  padding: 10px 20px;
 }
 
-nav a{
-  color: white;
-  text-decoration: none;
-}
-
-nav h2{
-  margin: 0;
-}
-
-.nav-items{
-  flex:1;
-  display:flex;
-  justify-content:center;
-}
-
-.nav-items ul{
-  list-style: none;
+.title {
+  margin: 5px;
   display: flex;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-items li{
-  margin: 0 15px;
-}
-
-.nav-items a{
+  align-items: center;
   color: white;
+}
+
+.links-container {
+  height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+  /* Spinge .links-container a destra */
+}
+
+nav a {
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  font-size: 18px;
-}
-
-.nav-items a:hover{
-  color: var(--secondary-color);
-}
-
-.nav-button{
-  position: relative;
-}
-
-.nav-button .anim-layer{
-  /* Your animation layer styles here if any */
-}
-
-.nav-button a{
   color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
 }
 
-.nav-button a:hover{
+.links-container a:hover {
   background-color: var(--secondary-color);
 }
 
-@media (max-width: 768px) {
-  nav{
+nav .home-link {
+  margin-right: auto;
+}
+
+nav svg {
+  fill: white;
+}
+
+#sidebar-active {
+  display: none;
+}
+
+.open-sidebar-button,
+.close-sidebar-button {
+  padding: 0 20px;
+  display: none;
+}
+
+@media(max-width: 700px) {
+  .links-container {
     flex-direction: column;
     align-items: flex-start;
+
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 10;
+    width: 300px;
+
+    background-color: var(--primary-color);
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.5);
+    transition: 0.75s ease-out;
   }
 
-  .nav-items{
+  nav a {
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
     justify-content: flex-start;
   }
 
-  .nav-items ul{
-    flex-direction: column;
-    width: 100%;
+  .open-sidebar-button,
+  .close-sidebar-button {
+    padding: 20px;
+    display: block;
+    cursor: pointer;
   }
 
-  .nav-items li{
-    margin: 10px 0;
-  }
-
-  .nav-button{
-    align-self: flex-end;
-    margin-top: 10px;
+  #sidebar-active:checked~.links-container {
+    right: 0;
   }
 }

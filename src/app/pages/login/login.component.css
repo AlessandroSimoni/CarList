@@ -1,0 +1,23 @@
+/* Stile del componente ospite per riempire tutta la pagina */
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 86.9vh;
+    width: 100%; /* Assicurati che il div occupi l'intera larghezza */
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container{
+    margin: 34px auto;
+    height: 550px;
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
