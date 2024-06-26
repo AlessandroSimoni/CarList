@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { DialogBoxComponent } from 'src/app/core/dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  username: string = '';
+
+  constructor(public dialog: MatDialog  ,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.username = params['username'];
+    });
+  }
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      title: 'Disable',
+      message: 'We are so sorry, but this feature is not available yet.😢'
+    };
+    this.dialog.open(DialogBoxComponent, dialogConfig);
   }
 
 }
