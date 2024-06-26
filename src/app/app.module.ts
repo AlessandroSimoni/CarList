@@ -1,4 +1,4 @@
-import { NgModule, Renderer2 } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
