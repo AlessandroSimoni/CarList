@@ -7,13 +7,15 @@ import { FooterComponent } from './core/footer/footer.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { HeaderComponent } from './core/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     WelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
