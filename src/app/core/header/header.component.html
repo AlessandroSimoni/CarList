@@ -15,8 +15,14 @@
             </svg>
         </label>
         <a routerLink="/home" routerLinkActive="active">Home</a>
-        <a routerLink="/about" routerLinkActive="active">About</a>
-        <a routerLink="/blog" routerLinkActive="active">Blog</a>
-        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a routerLink="/about" routerLinkActive="active">About Us</a>
+        <a routerLink="/login" routerLinkActive="active"
+            *ngIf="currentRoute === '' || currentRoute === 'welcome' || currentRoute === 'register'">Login</a>
+
+        <a routerLink="/register" routerLinkActive="active" *ngIf="currentRoute === 'login'">Signup</a>
+
+        <a routerLink="/profile" routerLinkActive="active" *ngIf="isLogged">Profile</a>
+
+        <a (click)="logOut()" routerLinkActive="active" *ngIf="isLogged">Logout</a>
     </div>
 </nav>

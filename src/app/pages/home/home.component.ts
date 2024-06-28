@@ -10,14 +10,11 @@ import { DialogBoxComponent } from 'src/app/core/dialog-box/dialog-box.component
 })
 export class HomeComponent implements OnInit {
 
-  username: string = '';
+  username = sessionStorage.getItem('username');
 
   constructor(public dialog: MatDialog  ,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.username = params['username'];
-    });
   }
 
   openDialog() {

@@ -31,6 +31,7 @@ nav a {
   align-items: center;
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 
 .links-container a:hover {
@@ -54,6 +55,12 @@ nav svg {
   padding: 0 20px;
   display: none;
 }
+
+.dynamic :hover{
+  background-color: var(--secondary-color);
+}
+
+
 
 @media(max-width: 700px) {
   .links-container {

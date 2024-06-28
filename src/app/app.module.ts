@@ -29,7 +29,7 @@ import { DialogBoxComponent } from './core/dialog-box/dialog-box.component';
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

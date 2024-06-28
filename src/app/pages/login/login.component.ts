@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DialogBoxComponent } from 'src/app/core/dialog-box/dialog-box.component';
+import { AuthappService } from 'src/services/authapp.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   @Input() password: string = '';
   error: string = '';
 
-  constructor(public dialog: MatDialog, private router: Router) { }
+  constructor(public dialog: MatDialog, private router: Router, private basicAuth: AuthappService) { }
 
   openDialog() {
     const dialogConfig = new MatDialogConfig();
@@ -25,16 +26,16 @@ export class LoginComponent implements OnInit {
     this.dialog.open(DialogBoxComponent, dialogConfig);
   }
 
-  login() {
-    if (this.username != 'Alessandro' || this.password != 'Speriamovadatuttobene') {
+  login(): void {
+    console.log(`Attempting to login with username: ${this.username}`);
+    if (this.basicAuth.authenticate(this.username, this.password)){
+      console.log('Login successful, navigating to home');
+      this.router.navigate(['home']);
+    } else {
+      console.log('Login failed');
       this.error = 'Username or password is incorrect. Please try again.';
-    }else{
-      // Redirect to the welcome page with Router service passing the username
-      this.router.navigate(['/home', this.username]);
     }
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
