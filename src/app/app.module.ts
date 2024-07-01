@@ -2,7 +2,7 @@ import { NgModule} from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogBoxComponent } from './core/dialog-box/dialog-box.component';
+import { AddCarComponent } from './pages/add-car/add-car.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import { DialogBoxComponent } from './core/dialog-box/dialog-box.component';
     WelcomeComponent,
     LoginComponent,
     RegisterComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    AddCarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +33,10 @@ import { DialogBoxComponent } from './core/dialog-box/dialog-box.component';
     MatDialogModule,
     MatButtonModule,
     FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

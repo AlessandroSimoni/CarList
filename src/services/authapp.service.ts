@@ -28,6 +28,10 @@ export class AuthappService {
     return !(user === null);
   }
 
+  logIn() {
+    this.isLoggedIn.next(true); // Aggiorna lo stato di autenticazione
+  }
+
   logOut() {
     sessionStorage.removeItem('username');
     this.isLoggedIn.next(false); // Aggiorna lo stato di autenticazione

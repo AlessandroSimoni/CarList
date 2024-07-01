@@ -1,0 +1,51 @@
+/* Stile del componente ospite per riempire tutta la pagina */
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    /*margin top and bottom 1rem*/
+    margin: 1rem 0;
+}
+
+.add-car-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+input{
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#price ::before{
+    content: '€';
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0.5rem;
+    color: #495057;
+}

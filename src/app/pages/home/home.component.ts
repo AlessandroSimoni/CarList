@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { DialogBoxComponent } from 'src/app/core/dialog-box/dialog-box.component';
 
 @Component({
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   username = sessionStorage.getItem('username');
 
-  constructor(public dialog: MatDialog  ,private route: ActivatedRoute) { }
+  constructor(public dialog: MatDialog, private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +24,10 @@ export class HomeComponent implements OnInit {
       message: 'We are so sorry, but this feature is not available yet.😢'
     };
     this.dialog.open(DialogBoxComponent, dialogConfig);
+  }
+
+  addCart() {
+    this.route.navigate(['add-car']);
   }
 
 }

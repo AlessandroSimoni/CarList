@@ -1,0 +1,38 @@
+<div class="add-car-container">
+    <form [formGroup]="carForm">
+        <h2>Add Car</h2>
+        <div class="form-group">
+            <label for="brand">Brand</label>
+            <input type="text" class="form-control" id="brand" formControlName="brand" placeholder="Fiat">
+        </div>
+        <div class="form-group">
+            <label for="model">Model</label>
+            <input type="text" class="form-control" id="model" formControlName="model" placeholder="Panda">
+        </div>
+        <div class="form-group">
+            <label for="year">Year</label><br>
+            <input type="text" class="form-control" id="year" name="year" formControlName="year" placeholder="{{currentYear}}">
+        </div>
+        <div class="form-group">
+            <label for="length">Length</label>
+            <input type="text" class="form-control" id="length" formControlName="length" placeholder="3886 mm">
+        </div>
+        <div class="form-group">
+            <label for="width">Width</label>
+            <input type="text" class="form-control" id="width" formControlName="width" placeholder="1882 mm">
+        </div>
+        <div class="form-group">
+            <label for="height">Height</label>
+            <input type="text" class="form-control" id="height" formControlName="height" placeholder="1551 mm">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" formControlName="price" placeholder="15500 &euro;">           
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input class="form-control" type="file"> 
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

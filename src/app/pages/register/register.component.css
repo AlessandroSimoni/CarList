@@ -6,7 +6,6 @@
     justify-content: center;
     height: 86.9vh;
     width: 100%;
-    /* Assicurati che il div occupi l'intera larghezza */
     text-align: center;
     padding: 10px;
     box-sizing: border-box;
@@ -81,6 +80,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 1rem;
 }
 
 button:hover {
@@ -100,4 +100,33 @@ button:hover {
 
 .register-footer a:hover {
     text-decoration: underline;
+}
+
+/* Styles for invalid and valid states */
+input.is-invalid {
+    border-bottom: 2px solid red;
+}
+
+input.is-valid {
+    border-bottom: 2px solid green;
+}
+
+.invalid-feedback {
+    color: red;
+    font-size: 0.8em;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.error{
+    color: red;
+    font-size: 0.8em;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    text-align: left;
 }

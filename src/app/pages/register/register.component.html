@@ -1,23 +1,46 @@
 <div class="login-container">
-    <form class="login-form">
+    <form class="login-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <h2>Register</h2>
+        <p style="color:crimson;">{{error}}</p>
+
         <div class="input-group">
-            <input type="text" id="username">
-            <label for="username">Username</label>
+            <input type="text" id="username" formControlName="username"
+                [ngClass]="{'is-invalid': isInvalid(username), 'is-valid': isValid(username)}" placeholder="Username">
+            <div *ngIf="isInvalid(username)" class="invalid-feedback">
+                <div *ngIf="username?.errors?.['required']">Username is required.</div>
+            </div>
         </div>
+
         <div class="input-group">
-            <input type="email" id="email">
-            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email"
+                [ngClass]="{'is-invalid': isInvalid(email), 'is-valid': isValid(email)}" placeholder="Email">
+            <div *ngIf="isInvalid(email)" class="invalid-feedback">
+                <div *ngIf="email?.errors?.['required']">Email is required.</div>
+            </div>
         </div>
+
         <div class="input-group">
-            <input type="password" id="password">
-            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password"
+                [ngClass]="{'is-invalid': isInvalid(password), 'is-valid': isValid(password)}" placeholder="Password">
+            <div *ngIf="isInvalid(password)" class="invalid-feedback">
+                <div *ngIf="password?.errors?.['required']">Password is required.</div>
+            </div>
         </div>
+
         <div class="input-group">
-            <input type="password" id="confirmPassword">
-            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" formControlName="confirmPassword"
+                [ngClass]="{'is-invalid': isInvalid(confirmPassword), 'is-valid': isValid(confirmPassword)}"
+                placeholder="Confirm Password">
+            <div *ngIf="isInvalid(confirmPassword)" class="invalid-feedback">
+                <div *ngIf="confirmPassword?.errors?.['required']">Confirm Password is required.</div>
+            </div>
         </div>
-        <button type="submit">Sign up</button>
+        <div *ngIf="isInvalid(confirmPassword) || isInvalid(password) || isInvalid(email) || isInvalid(username); else elseBlock">
+            <button type="submit" disabled>Sign up</button>
+        </div>
+        <ng-template #elseBlock>
+            <button type="submit">Sign up</button>
+        </ng-template>
 
         <div class="register-footer">
             <a href="/login">Already have an account?</a>

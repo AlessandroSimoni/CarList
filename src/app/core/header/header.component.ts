@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthappService } from 'src/services/authapp.service';
+import { RegappService } from 'src/services/regapp.service';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,11 @@ import { AuthappService } from 'src/services/authapp.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
   isDarkMode = false;
   public currentRoute: string = '';
   isLogged: boolean = false;
 
-  constructor(private router: Router, private basicAuth: AuthappService) { }
+  constructor(private router: Router, private basicAuth: AuthappService, private regService: RegappService) { }
 
   ngOnInit(): void {
     // Sottoscrizione allo stato di autenticazione
@@ -34,6 +34,12 @@ export class HeaderComponent implements OnInit {
     // Sottoscrizione agli aggiornamenti del percorso
     this.basicAuth.currentRoute$.subscribe(route => {
       console.log(`Header component received current route: ${route}`);
+      this.currentRoute = route;
+    });
+
+    // Sottoscrizione al percorso corrente dal RegappService
+    this.regService.currentRoute$.subscribe(route => {
+      console.log(`Header component received current route from RegappService: ${route}`);
       this.currentRoute = route;
     });
   }
