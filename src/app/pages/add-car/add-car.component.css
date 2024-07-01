@@ -40,12 +40,3 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
-
-#price ::before{
-    content: '€';
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0.5rem;
-    color: #495057;
-}
