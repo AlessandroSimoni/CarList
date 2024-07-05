@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DialogBoxComponent } from 'src/app/core/dialog-box/dialog-box.component';
+import { AuthappService } from 'src/services/authapp.service';
 import { RegappService } from 'src/services/regapp.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   error: string = '';
 
-  constructor(private fb: FormBuilder, private mat: MatDialog, private route: Router, private regService: RegappService) {
+  constructor(private fb: FormBuilder, private mat: MatDialog, private route: Router, 
+    private regService: RegappService, private authappService: AuthappService) {
     this.registerForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -57,7 +58,7 @@ export class RegisterComponent implements OnInit {
       const confirmPassword = this.registerForm.get('confirmPassword')?.value;
       const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
-      // Check if password rispect the regex
+      // Check if password respects the regex
       if (!regex.test(password)) {
         this.error = 'Password must contain at least 8 characters, including at least 1 uppercase letter, 1 lowercase letter, and 1 number.';
       } 
@@ -68,8 +69,13 @@ export class RegisterComponent implements OnInit {
       // If everything is correct
       else {
         this.error = '';
-        this.regService.registerUser(this.registerForm.get('username')?.value, this.registerForm.get('email')?.value, this.registerForm.get('password')?.value);
-        this.route.navigate(['home']);
+
+        this.regService.registerUser(this.registerForm.value).subscribe(data => {
+          sessionStorage.setItem('username', this.registerForm.get('username')?.value);
+          this.authappService.logIn(); // Ensure this is injected as a dependency
+          this.registerForm.reset();
+          this.route.navigate(['home']);
+        });
       }
     }
   }

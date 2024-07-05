@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthappService } from './authapp.service';  // Importa AuthappService
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegappService {
+  private apiUrl = 'http://localhost:3000/users';
   private currentRoute = new BehaviorSubject<string>('');
 
   currentRoute$ = this.currentRoute.asObservable();
 
-  constructor(private authappService: AuthappService) { }  // Inietta AuthappService
+  constructor(private authappService: AuthappService, private http: HttpClient) { }  // Inietta AuthappService
 
-  registerUser(username: string, email: string, password: string): void {
-    console.log(`Registering user with username: ${username}`);
-    sessionStorage.setItem('username', username);
-    // Dopo la registrazione, imposta lo stato di autenticazione su "logged in"
-    this.authappService.logIn();
+  registerUser(user: any): Observable<any> {
+    // Salva i dati dell'utente nel database
+    return this.http.post<any>(this.apiUrl, user);
   }
 
   setCurrentRoute(route: string) {
